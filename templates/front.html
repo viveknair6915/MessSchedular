@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mess Schedular</title>
+    <title>Mess Scheduler</title>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Cookie');
 
@@ -69,7 +69,7 @@
 
         .drop {
             position: absolute;
-            top: 0;  
+            top: 0;
             z-index: -1;
             opacity: 0;
         }
@@ -83,7 +83,7 @@
         }
 
         .animate {
-            animation: falling 8.5s infinite ease-in;  
+            animation: falling 8.5s infinite ease-in;
         }
 
         @keyframes falling {
@@ -95,33 +95,32 @@
             font-size: 1.5em;
             font-weight: bold;
         }
+
         footer {
-    position: fixed;
-    bottom: 10px;
-    width: 100%;
-    text-align: center;
-    font-size: 1em;
-    color: #fff;
-}
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 1em;
+            color: #fff;
+        }
 
-footer a {
-    color: #fff;
-    text-decoration: none;
-}
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
 
-footer a:hover {
-    text-decoration: underline;
-}
+        footer a:hover {
+            text-decoration: underline;
+        }
 
-footer a:visited {
-    color: #000000; /* Ensures the color remains white after the link is visited */
-}
+        footer a:visited {
+            color: #000000;
+        }
 
-footer a:active {
-    color: #000000; /* Ensures the color remains white when the link is clicked */
-}
-
-
+        footer a:active {
+            color: #000000;
+        }
     </style>
 </head>
 <body>
@@ -137,7 +136,7 @@ footer a:active {
     <footer>
         <p>Made with 🍱 by <a href="https://github.com/life2harsh" target="_blank">life2harsh <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/1200px-Octicons-mark-github.svg.png" alt="GitHub Logo" style="width: 20px; height: 20px; margin-right: 8px;"> </a></p>
     </footer>
-    
+
     <script>
         async function fetchMealInfo() {
             const mealInfoDiv = document.getElementById('meal-info');
@@ -160,7 +159,7 @@ footer a:active {
                     throw new Error(data.error);
                 }
 
-                mealInfoDiv.innerHTML = ` 
+                mealInfoDiv.innerHTML = `
                     <p><strong>Day:</strong> ${data.Day}</p>
                     <p class="current-meal"><strong>Current Meal:</strong> ${data['Current Meal']}</p>
                     <p class="current-meal-details"><strong>Meal Details:</strong> ${data['Meal Details']}</p>
@@ -168,7 +167,8 @@ footer a:active {
                     <p><strong>Next Meal Details:</strong> ${data['Next Meal Details']}</p>
                 `;
 
-                cacheInfoDiv.innerText = data['cached'] ? 'Data served from cache ✅' : '';
+                // Display cache info if available
+                cacheInfoDiv.innerText = data.cached ? 'Data served from cache ✅' : '';
             } catch (error) {
                 console.error('Error fetching meal information:', error);
                 errorDiv.innerText = `Error: ${error.message}`;

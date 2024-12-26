@@ -7,7 +7,7 @@ from datetime import datetime
 import requests  # For fetching remote image
 
 # Configure the Gemini API
-genai.configure(api_key="AIzaSyCGUeuP3xrtfNfNWy_oCVpWUvNBOnbzTss")
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 generation_config = {
     "temperature": 1,

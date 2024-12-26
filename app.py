@@ -71,7 +71,7 @@ def get_menu():
 
         if not meal_data:
             # Fetch Image from Remote URL
-            image_url = "https://github.com/life2harsh/MessSchedular/blob/main/messmenu.jpg?raw=true"
+            image_url = "https://github.com/life2harsh/MessSmth/blob/main/messmenu.jpg?raw=true"
 
             response = requests.get(image_url)
             if response.status_code != 200:

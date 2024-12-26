@@ -1,25 +1,20 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "app.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "functions": {
-    "api/*": {
-      "runtime": "python3.9",
-      "memory": 1024,
-      "maxDuration": 60
-    }
-  },
-  "routes": [
+  "version": 3,  # Update version to 3 for latest features
+  "routes": [  # Keep routes for handling all requests
     {
       "src": "/(.*)",
       "dest": "app.py"
     }
   ],
-  "env": {
+  "env": {  # Keep environment variable for Gemini API key
     "GEMINI_API_KEY": "@gemini_api_key"
+  },
+  "functions": {  # Choose functions for serverless functions deployment
+    "api/*": {  # Define API routes under the "api" directory
+      "runtime": "python3.9",
+      "memory": 1024,
+      "maxDuration": 60
+    }
   }
+  # Remove the "builds" property since you're deploying serverless functions
 }

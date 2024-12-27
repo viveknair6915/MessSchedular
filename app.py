@@ -54,6 +54,10 @@ def save_meal_data(data):
     except Exception as e:
         print(f"Error saving data: {str(e)}")
 
+@app.route('/')
+def home():
+    return redirect('/get_menu')
+
 @app.route('/get_menu', methods=['GET'])
 def get_menu():
     try:
